@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<Country id="1" name="Spain" creation_Date="2018-12-24 11:13:28" last_Modified_Date="2018-12-24 11:13:28" />
+	<Country id="2" name="France" creation_Date="2018-12-25 11:13:28" last_Modified_Date="2018-12-25 11:13:28"/>
+</dataset>
