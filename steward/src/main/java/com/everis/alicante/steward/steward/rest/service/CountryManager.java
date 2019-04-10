@@ -22,4 +22,9 @@ public class CountryManager extends AbstractManager<Country, Long>{
 	public Iterable<Country> findByName(String name) {
 		return this.getRepository().findByName(name);
 	}
+	
+	public Iterable<Country> findAllOrderByName() {
+		return this.getRepository().findAllByOrderByNameAsc();
+	}
+	
 }

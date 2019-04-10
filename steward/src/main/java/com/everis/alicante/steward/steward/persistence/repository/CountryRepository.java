@@ -10,6 +10,7 @@ public interface CountryRepository extends CrudRepository<Country, Long> {
 
 	Iterable<Country> findByName(String name);
 
+	Iterable<Country> findAllByOrderByNameAsc();
 	// findBy
 	// countBy
 	// deleteBY

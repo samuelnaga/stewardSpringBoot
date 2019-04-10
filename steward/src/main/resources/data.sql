@@ -334,6 +334,7 @@ VALUES ('Spain');
 				
 			insert into floor(number, building_id)
 			values (2,6);
+			
 				insert into workplace(number, coordx, coordy, floor_id)
 				values (1, 0, 0, 15);
 				
@@ -345,6 +346,12 @@ VALUES ('Spain');
 		
 			insert into floor(number, building_id)
 			values (1,7);
+			
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (1, 0, 0, 16);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (2, 0, 0, 16);
 
 
 INSERT INTO COUNTRY(name)
@@ -356,11 +363,47 @@ VALUES ('France');
 		insert into building(name, city_id)
 		values ('Colomer Dumont', 4);
 		
+			insert into floor(number, building_id)
+			values (1,8);
+			
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (1, 0, 0, 17);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (2, 0, 0, 17);
+			
+			insert into floor(number, building_id)
+			values (2,8);
+			
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (1, 0, 0, 18);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (2, 0, 0, 18);
+		
 	insert into city(name, country_id)
 	values ('Lyon', 2);
 		
 		insert into building(name, city_id)
 		values ('Cubic 33', 5);
+		
+			insert into floor(number, building_id)
+			values (1,9);
+			
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (1, 0, 0, 19);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (2, 0, 0, 19);
+			
+			insert into floor(number, building_id)
+			values (2,9);
+			
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (1, 0, 0, 20);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (2, 0, 0, 20);
 
 INSERT INTO COUNTRY(name)
 VALUES ('Brazil');
@@ -371,11 +414,101 @@ VALUES ('Brazil');
 		insert into building(name, city_id)
 		values ('Morumbi Square', 6);
 		
+			insert into floor(number, building_id)
+			values (1,10);
+			
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (1, 0, 0, 21);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (2, 0, 0, 21);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (3, 0, 0, 21);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (4, 0, 0, 21);
+			
+			insert into floor(number, building_id)
+			values (2,10);
+			
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (1, 0, 0, 22);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (2, 0, 0, 22);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (3, 0, 0, 22);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (4, 0, 0, 22);
+		
 	insert into city(name, country_id)
 	values ('Lyon', 3);
 		
 		insert into building(name, city_id)
 		values ('Galeria Building', 7);
+		
+			insert into floor(number, building_id)
+			values (1,11);
+			
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (1, 0, 0, 23);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (2, 0, 0, 23);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (3, 0, 0, 23);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (4, 0, 0, 23);
+			
+			insert into floor(number, building_id)
+			values (2,11);
+			
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (1, 0, 0, 24);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (2, 0, 0, 24);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (3, 0, 0, 24);
+				
+				insert into workplace(number, coordx, coordy, floor_id)
+				values (4, 0, 0, 24);
+				
+INSERT INTO COUNTRY(name)
+VALUES ('Argentina');
+
+INSERT INTO COUNTRY(name)
+VALUES ('Canada');
+
+--INSERT INTO COUNTRY(name)
+--VALUES ('Japan');
+
+INSERT INTO COUNTRY(name)
+VALUES ('Mexico');
+
+INSERT INTO COUNTRY(name)
+VALUES ('Peru');
+
+--INSERT INTO COUNTRY(name)
+--VALUES ('Portugal');
+
+INSERT INTO COUNTRY(name)
+VALUES ('Slovenia');
+
+INSERT INTO COUNTRY(name)
+VALUES ('Sweden');
+
+--INSERT INTO COUNTRY(name)
+--VALUES ('Venezuela');
+--
+--INSERT INTO COUNTRY(name)
+--VALUES ('Yemen');
 
 --
 --

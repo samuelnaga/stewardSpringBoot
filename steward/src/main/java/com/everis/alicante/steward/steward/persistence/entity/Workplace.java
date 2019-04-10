@@ -1,6 +1,6 @@
 package com.everis.alicante.steward.steward.persistence.entity;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -31,6 +31,6 @@ public class Workplace extends Auditable{
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Floor floor;
 	
-	@OneToOne(mappedBy = "workplace")
+	@OneToOne(mappedBy = "workplace", cascade = CascadeType.ALL, orphanRemoval = true)
 	private User user;
 }

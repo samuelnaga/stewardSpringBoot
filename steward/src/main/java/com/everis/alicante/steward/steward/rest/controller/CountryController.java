@@ -37,8 +37,7 @@ public class CountryController {
 	@GetMapping("/countries")
 	public List<CountryDTO> findAllCountries(@RequestParam(value = "name", required = false) String name) {
 		if (StringUtils.isEmpty(name)) {
-			return this.manager.findAll().stream().map(country -> (CountryDTO) mapper.map(country, CountryDTO.class))
-					.collect(Collectors.toList());
+			return StreamSupport.stream(this.manager.findAllOrderByName().spliterator(), false).map(country -> (CountryDTO) mapper.map(country, CountryDTO.class)).collect(Collectors.toList());
 		} else {
 			return StreamSupport.stream(this.manager.findByName(name).spliterator(), false).map(country -> (CountryDTO) mapper.map(country, CountryDTO.class)).collect(Collectors.toList());
 		}

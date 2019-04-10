@@ -35,7 +35,7 @@ public class User extends Auditable {
 	private String password;
 	private Integer rol;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinTable(name = "user_workplace",
 		joinColumns = { @JoinColumn(name = "user_id", referencedColumnName = "id") },
 		inverseJoinColumns = { @JoinColumn(name = "workplace_id", referencedColumnName = "id") })
