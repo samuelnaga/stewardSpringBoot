@@ -1,5 +1,6 @@
 package com.everis.alicante.steward.steward.rest.controller;
 
+import com.everis.alicante.steward.steward.rest.controller.WorkplaceController;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,11 +23,15 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.everis.alicante.steward.steward.persistence.dto.CityDTO;
 import com.everis.alicante.steward.steward.persistence.dto.CountryDTO;
 import com.everis.alicante.steward.steward.persistence.dto.FloorDTO;
-import com.everis.alicante.steward.steward.persistence.dto.BuildingDTO;
+import com.everis.alicante.steward.steward.persistence.dto.UserWorkplaceDTO;
 import com.everis.alicante.steward.steward.persistence.dto.WorkplaceDTO;
 import com.everis.alicante.steward.steward.persistence.dto.UserDTO;
 import com.everis.alicante.steward.steward.persistence.entity.User;
+import com.everis.alicante.steward.steward.persistence.entity.User_;
+import com.everis.alicante.steward.steward.persistence.entity.Workplace;
+import com.everis.alicante.steward.steward.persistence.entity.Workplace_;
 import com.everis.alicante.steward.steward.rest.service.UserManager;
+import com.everis.alicante.steward.steward.rest.service.WorkplaceManager;
 
 @RestController
 public class UserController {
@@ -36,6 +41,9 @@ public class UserController {
 
 	@Autowired
 	private DozerBeanMapper mapper;
+	
+	@Autowired
+	private WorkplaceController wContr;
 	
 	//@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping("/users")
@@ -86,4 +94,35 @@ public class UserController {
 //		return location;
 //	}
 	
+	@PostMapping("/users")
+	public Number setUserWorkplace(@RequestBody UserWorkplaceDTO user_workplace) {
+		System.out.println(user_workplace.getUser_id());
+		System.out.println(user_workplace.getQrcode());
+		User aux = this.manager.findById(user_workplace.getUser_id()).get();
+		
+		//if(aux.getWorkplace() == null) {
+			User auxMod = new User();
+			auxMod.setCreationDate(aux.getCreationDate());
+			auxMod.setId(aux.getId());
+			auxMod.setLastModifiedDate(aux.getLastModifiedDate());
+			auxMod.setName(aux.getName());
+			auxMod.setPassword(aux.getPassword());
+			auxMod.setRol(aux.getRol());
+			auxMod.setUsername(aux.getUsername());
+			auxMod.setWorkplace(aux.getWorkplace());
+			
+			Workplace w = wContr.getWorkplaceByQR(user_workplace.getQrcode());
+			auxMod.setWorkplace(w);
+
+			this.manager.save(auxMod);
+			
+			return auxMod.getWorkplace().getNumber();	
+		//}
+
+	}
+	
+//	private User replaceUserValues(final UserDTO origin, final User target) {
+//		BeanUtils.copyProperties(origin, target, User_.id.getName(), User_.creationDate.getName());
+//		return target;
+//	}
 }

@@ -20,5 +20,9 @@ public class WorkplaceManager extends AbstractManager<Workplace, Long>{
 	public Iterable<Workplace> findByNumber(int number) {
 		return this.getRepository().findByNumber(number);
 	}
+	
+	public Iterable<Workplace> findByQrcode(int qr) {
+		return this.getRepository().findByQrcode(qr);
+	}
 
 }

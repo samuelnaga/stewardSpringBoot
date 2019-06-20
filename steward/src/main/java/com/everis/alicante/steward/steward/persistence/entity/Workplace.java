@@ -27,6 +27,7 @@ public class Workplace extends Auditable{
 	private int number;
 	private float coordX;
 	private float coordY;
+	private int qrcode;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Floor floor;

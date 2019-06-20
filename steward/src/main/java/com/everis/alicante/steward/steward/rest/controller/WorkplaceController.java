@@ -1,5 +1,6 @@
 package com.everis.alicante.steward.steward.rest.controller;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -21,6 +22,7 @@ import com.everis.alicante.steward.steward.persistence.dto.WorkplaceDTO;
 import com.everis.alicante.steward.steward.persistence.entity.Workplace;
 import com.everis.alicante.steward.steward.persistence.entity.Workplace_;
 import com.everis.alicante.steward.steward.rest.service.WorkplaceManager;
+import com.everis.alicante.steward.steward.persistence.dto.QRDTO;
 
 @RestController
 public class WorkplaceController {
@@ -67,6 +69,20 @@ public class WorkplaceController {
 				WorkplaceDTO.class);
 	}
 	
+	@PutMapping("/workplaces/qrcode/{id}")
+	public void updateQRCode(@PathVariable("id") Long id,  @RequestBody QRDTO qrcode) {
+		System.out.println("received qr 1");
+		Workplace nuevo = this.manager.findById(id).get();
+		nuevo.setQrcode(qrcode.getQrcode());
+		System.out.println("received qr 2");
+		
+		mapper.map(this.manager.findById(id)
+				.map(e -> this.replaceWorkplaceValues(mapper.map(nuevo, WorkplaceDTO.class), e))
+				.map(e -> this.manager.save(e))
+				.orElseThrow(() -> new IllegalArgumentException(String.format("The element[%s] does not exist", id))),
+				WorkplaceDTO.class);
+	}
+	
 	private Workplace replaceWorkplaceValues(final WorkplaceDTO origin, final Workplace target) {
 		BeanUtils.copyProperties(origin, target, Workplace_.id.getName(), Workplace_.creationDate.getName());
 		return target;
@@ -75,5 +91,9 @@ public class WorkplaceController {
 	@GetMapping("/workplaces/{id}/floor")
 	public FloorDTO getFloorOfWorkplace(@PathVariable("id") Long id) {
 		return mapper.map(this.manager.findById(id).get().getFloor(), FloorDTO.class);
+	}
+	
+	public Workplace getWorkplaceByQR(int qr) {
+		return StreamSupport.stream(this.manager.findByQrcode(qr).spliterator(), false).findFirst().get();
 	}
 }

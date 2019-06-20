@@ -9,4 +9,5 @@ public interface WorkplaceRepository extends CrudRepository<Workplace, Long> {
 	//Optional<Iterable<Workplace>> findBy();
 	
 	Iterable<Workplace> findByNumber(int number);
+	Iterable<Workplace> findByQrcode(int qr);
 }

@@ -23,6 +23,7 @@ public class WorkplaceDTO extends AuditableDTO {
 	private int number;
 	private float coordX;
 	private float coordY;
+	private int qrcode;
 	//private FloorDTO floor;
 	
 //	@Column(nullable = true)

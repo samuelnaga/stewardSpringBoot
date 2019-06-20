@@ -10,7 +10,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
-import com.everis.alicante.steward.steward.persistence.entity.Workplace;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
